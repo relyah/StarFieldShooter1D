@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/StarFieldShooter1D.dir/main.cpp.o  -o StarFieldShooter1D -rdynamic 
