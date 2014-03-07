@@ -5,6 +5,7 @@ StarFieldGame::StarFieldGame()
     logger = Util::Logger::GetLogger();
 
     logger->info("Star Field Game starting...");
+    //some comment
 }
 
 StarFieldGame::~StarFieldGame(){
