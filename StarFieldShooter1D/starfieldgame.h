@@ -6,6 +6,7 @@
 
 #include "Util/Logger.h"
 #include "OpenGL/openglmanager.h"
+#include "OpenGL/InputManager.h"
 
 class StarFieldGame
 {
@@ -18,6 +19,7 @@ public:
 private:
 
     OpenGL::OpenGLManager* manager;
+    OpenGL::InputManager* input;
 
     log4cpp::Category* logger;
 };

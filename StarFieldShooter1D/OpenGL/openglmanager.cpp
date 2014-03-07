@@ -68,6 +68,11 @@ void OpenGLManager::Init(){
     logger->info("OpenGLManager initialised OpenGL.");
 }
 
+void OpenGLManager::Shutdown() {
+    logger->info("OpenGLManager shutdown requested.");
+    glfwSetWindowShouldClose(window, 1);
+}
+
 void OpenGLManager::BeginScene(float r, float g, float b, float a) {
     glClearColor(r, g, b, a);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

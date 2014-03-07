@@ -9,12 +9,17 @@ StarFieldGame::StarFieldGame()
     manager = new OpenGL::OpenGLManager(640,400);
     manager->Init();
 
-       logger->info("Star Field Game started.");
+    input = new OpenGL::InputManager();
+    input->Init(manager);
+
+    logger->info("Star Field Game started.");
 }
 
 StarFieldGame::~StarFieldGame(){
     logger->info("Star Field Game shutting down...");
 
+    delete input;
+    input = 0;
     delete manager;
     manager = 0;
 
@@ -23,6 +28,23 @@ StarFieldGame::~StarFieldGame(){
 }
 
 void StarFieldGame::Play() {
-    manager->BeginScene(0.1f,0.1f,0.1f,1.0f);
-    manager->EndScene();
+
+
+    logger->info("Star Field Game running...");
+
+    bool isRunning = true;
+
+    while (isRunning) {
+
+        manager->BeginScene(0.1f,0.1f,0.1f,1.0f);
+        manager->EndScene();
+
+        input->PollEvents();
+        isRunning = !input->IsEscapePressed();
+        if (!isRunning) {
+            manager->Shutdown();
+        }
+    }
+
+    logger->info("Star Field Game stopped running.");
 }

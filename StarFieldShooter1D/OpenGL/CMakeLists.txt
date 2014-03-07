@@ -8,3 +8,4 @@ ADD_DEFINITIONS(
 )
 
 add_library(OpenGLManager openglmanager.cpp)
+add_library(InputManager InputManager.cpp)

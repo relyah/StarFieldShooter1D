@@ -19,8 +19,12 @@ public:
     ~OpenGLManager();
 
     void Init();
+    void Shutdown();
+
     void BeginScene(float r, float g, float b, float a);
     void EndScene();
+
+    GLFWwindow* GetWindow() {return window;}
 
 private:
     void OnWindowResize(GLFWwindow* window, int width, int height);
