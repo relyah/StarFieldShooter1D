@@ -1,1 +1,0 @@
-/home/bert/code/qtlearn/StarFieldShooter1D/StarFieldShooter1D-build/CMakeFiles/StarFieldShooter1D.dir
