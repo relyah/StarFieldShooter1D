@@ -9,8 +9,10 @@ ADD_DEFINITIONS(
 aux_source_directory(. SRC_LIST)
 
 include_directories("${PROJECT_SOURCE_DIR}/Util")
+include_directories("${PROJECT_SOURCE_DIR}/OpenGL")
 
 add_subdirectory(Util)
+add_subdirectory(OpenGL)
 
 add_library(StarFieldGame starfieldgame.cpp)
 

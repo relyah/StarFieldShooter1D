@@ -1,4 +1,4 @@
-# cmakelists for util
+# cmakelists for OpenGL
 
 cmake_minimum_required(VERSION 2.8) #specify minimum version
 
@@ -7,4 +7,4 @@ ADD_DEFINITIONS(
     # Other flags
 )
 
-add_library(Logger Logger.cpp)
+add_library(OpenGLManager openglmanager.cpp)
