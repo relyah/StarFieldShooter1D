@@ -19,7 +19,7 @@ add_library(StarFieldGame starfieldgame.cpp)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 
-target_link_libraries(${PROJECT_NAME} Logger log4cpp pthread StarFieldGame )
+target_link_libraries(${PROJECT_NAME} Logger log4cpp pthread OpenGLManager GLEW glfw3 GL X11 Xxf86vm Xrandr rt  StarFieldGame )
 
 configure_file(log4cpp.properties log4cpp.properties COPYONLY)
 

@@ -5,6 +5,7 @@
 #include <log4cpp/PropertyConfigurator.hh>
 
 #include "Util/Logger.h"
+#include "OpenGL/openglmanager.h"
 
 class StarFieldGame
 {
@@ -15,6 +16,8 @@ public:
     void Play();
 
 private:
+
+    OpenGL::OpenGLManager* manager;
 
     log4cpp::Category* logger;
 };
