@@ -7,6 +7,10 @@ PlayerData::PlayerData(PlayerProgram *program) : program(program)
 {
     Generate();
 }
+PlayerData::~PlayerData()
+{
+    program = NULL;
+}
 
 void PlayerData::GenerateVertices()
 {

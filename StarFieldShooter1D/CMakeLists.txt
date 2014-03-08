@@ -22,10 +22,14 @@ add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 
 target_link_libraries(${PROJECT_NAME}
-Logger log4cpp pthread
-OpenGLManager InputManager  PlayerShip Position
+log4cpp pthread
+PlayerLib
+OpenGLLib
+UtilLib
+
 GLEW glfw3 GL X11 Xxf86vm Xrandr rt
 StarFieldGame )
 
 configure_file(log4cpp.properties log4cpp.properties COPYONLY)
-
+configure_file(Shaders/piece.vs.glsl piece.vs.glsl COPYONLY)
+configure_file(Shaders/piece.fs.glsl piece.fs.glsl COPYONLY)

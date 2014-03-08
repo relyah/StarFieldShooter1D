@@ -29,7 +29,7 @@ PlayerProgram::~PlayerProgram() {
 }
 
 void PlayerProgram::Init() {
-    program = create_program("piece.glsl", "piece.glsl", vs, fs);
+    program = create_program("piece.vs.glsl", "piece.fs.glsl", vs, fs);
     if (program == 0)
         return;
 

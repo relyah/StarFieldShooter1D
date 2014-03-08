@@ -4,6 +4,7 @@
 #include "../OpenGL/abstractprogram.h"
 
 #include "../Util/Logger.h"
+#include "../Util/shader_utils.h"
 
 namespace Model {
 

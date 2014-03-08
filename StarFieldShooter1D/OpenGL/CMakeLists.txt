@@ -7,7 +7,4 @@ ADD_DEFINITIONS(
     # Other flags
 )
 
-add_library(OpenGLManager openglmanager.cpp)
-add_library(InputManager InputManager.cpp)
-add_library(AbstractProgram abstractprogram.cpp)
-add_library(AbstractData abstractdata.cpp)
+add_library(OpenGLLib openglmanager.cpp InputManager.cpp abstractprogram.cpp abstractdata.cpp)

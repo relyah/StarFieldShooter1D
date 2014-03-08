@@ -9,6 +9,9 @@
 #include "OpenGL/InputManager.h"
 
 #include "Model/playership.h"
+#include "Model/playerprogram.h"
+#include "Model/playerdata.h"
+#include "Model/playerdraw.h"
 
 class StarFieldGame
 {
@@ -24,7 +27,9 @@ private:
     OpenGL::InputManager* input;
 
     Model::PlayerShip* player;
-
+    Model::PlayerProgram* playerProgram;
+    Model::PlayerData* playerData;
+    Model::PlayerDraw* playerDraw;
 
     log4cpp::Category* logger;
 };

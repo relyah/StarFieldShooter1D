@@ -13,6 +13,9 @@ StarFieldGame::StarFieldGame()
     input->Init(manager);
 
     player = new Model::PlayerShip(input);
+    playerProgram = new Model::PlayerProgram();
+    playerData = new Model::PlayerData(playerProgram);
+    playerDraw = new Model::PlayerDraw(playerProgram,playerData,player);
 
     logger->info("Star Field Game started.");
 }
@@ -26,8 +29,19 @@ StarFieldGame::~StarFieldGame(){
     delete manager;
     manager = NULL;
 
+
+    delete playerDraw;
+    playerDraw=NULL;
+
+    delete playerData;
+    playerData=NULL;
+
+    delete playerProgram;
+    playerProgram=NULL;
+
     delete player;
     player = NULL;
+
 
     logger->info("Star Field Game shutdown.");
     logger = 0;

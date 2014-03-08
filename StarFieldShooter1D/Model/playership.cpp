@@ -5,8 +5,6 @@ PlayerShip::PlayerShip(OpenGL::InputManager* inputManager) : inputManager(inputM
 {
     logger = Util::Logger::GetLogger();
 
-    position.setX(0.5f);
-
     logger->info("PlayerShip starting...");
 }
 

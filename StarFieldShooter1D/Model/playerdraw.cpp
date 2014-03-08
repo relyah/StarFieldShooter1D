@@ -10,8 +10,14 @@ PlayerDraw::PlayerDraw(PlayerProgram* program, PlayerData* data, PlayerShip* shi
     data->LoadData();
 }
 
+PlayerDraw::~PlayerDraw() {
+    program= NULL;
+    data=NULL;
+    ship=NULL;
+}
+
 void PlayerDraw::Render() {
-data->Render();
+    data->Render();
 }
 
 }

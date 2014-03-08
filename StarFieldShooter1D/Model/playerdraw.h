@@ -12,6 +12,7 @@ class PlayerDraw : public Drawable
 {
 public:
     PlayerDraw(PlayerProgram* program, PlayerData* data, PlayerShip* ship);
+    ~PlayerDraw();
 
     virtual void Render();
 

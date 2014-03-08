@@ -15,6 +15,7 @@ class PlayerData : public OpenGL::AbstractData
 {
 public:
     PlayerData(PlayerProgram* program);
+    ~PlayerData();
     void GenerateVertices();
     void LoadData();
     void Render();

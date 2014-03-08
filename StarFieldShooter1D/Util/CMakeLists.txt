@@ -7,5 +7,4 @@ ADD_DEFINITIONS(
     # Other flags
 )
 
-add_library(Logger Logger.cpp)
-add_library(shader_utils shader_utils.cpp)
+add_library(UtilLib Logger.cpp shader_utils.cpp)
