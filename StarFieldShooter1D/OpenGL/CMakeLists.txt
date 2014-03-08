@@ -9,3 +9,4 @@ ADD_DEFINITIONS(
 
 add_library(OpenGLManager openglmanager.cpp)
 add_library(InputManager InputManager.cpp)
+add_library(AbstractProgram abstractprogram.cpp)

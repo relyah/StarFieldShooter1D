@@ -8,3 +8,4 @@ ADD_DEFINITIONS(
 )
 
 add_library(Logger Logger.cpp)
+add_library(shader_utils shader_utils.cpp)
