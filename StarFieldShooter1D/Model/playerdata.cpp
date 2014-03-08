@@ -18,6 +18,8 @@ void PlayerData::GenerateVertices()
     vertices.push_back({glm::vec2(0.1f,-0.1f)});
     vertices.push_back({glm::vec2(0.1f,0.1f)});
     vertices.push_back({glm::vec2(-0.1f,0.1f)});
+    vertices.push_back({glm::vec2(-0.1f,-0.1f)});
+    vertices.push_back({glm::vec2(0.1f,0.1f)});
 }
 
 void PlayerData::LoadData()
