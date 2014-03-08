@@ -1,0 +1,4 @@
+#ifndef ABSTRACTDATA_H
+#define ABSTRACTDATA_H
+
+#endif // ABSTRACTDATA_H
