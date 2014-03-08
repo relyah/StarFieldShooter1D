@@ -7,19 +7,27 @@
 #include "../Util/Logger.h"
 #include "../OpenGL/InputManager.h"
 
+#include "drawable.h"
+#include "position.h"
+
+namespace Model {
 class PlayerShip
 {
 public:
     PlayerShip(OpenGL::InputManager* inputManager);
     ~PlayerShip();
 
-    void Draw();
+    void SetDrawer(Drawable* drawer) {this->drawer = drawer;}
+
+    void Render();
 
     void Process();
 
 private:
+    Drawable* drawer;
+    Position* position;
     OpenGL::InputManager* inputManager;
     log4cpp::Category* logger;
 };
-
+}
 #endif // PLAYERSHIP_H

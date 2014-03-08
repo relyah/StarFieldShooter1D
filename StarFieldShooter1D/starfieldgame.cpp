@@ -12,6 +12,8 @@ StarFieldGame::StarFieldGame()
     input = new OpenGL::InputManager();
     input->Init(manager);
 
+    player = new Model::PlayerShip(input);
+
     logger->info("Star Field Game started.");
 }
 
@@ -19,9 +21,13 @@ StarFieldGame::~StarFieldGame(){
     logger->info("Star Field Game shutting down...");
 
     delete input;
-    input = 0;
+    input = NULL;
+
     delete manager;
-    manager = 0;
+    manager = NULL;
+
+    delete player;
+    player = NULL;
 
     logger->info("Star Field Game shutdown.");
     logger = 0;
@@ -37,6 +43,9 @@ void StarFieldGame::Play() {
     while (isRunning) {
 
         manager->BeginScene(0.1f,0.1f,0.1f,1.0f);
+
+        player->Render();
+
         manager->EndScene();
 
         input->PollEvents();

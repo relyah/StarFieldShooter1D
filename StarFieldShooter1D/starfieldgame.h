@@ -8,6 +8,8 @@
 #include "OpenGL/openglmanager.h"
 #include "OpenGL/InputManager.h"
 
+#include "Model/playership.h"
+
 class StarFieldGame
 {
 public:
@@ -20,6 +22,9 @@ private:
 
     OpenGL::OpenGLManager* manager;
     OpenGL::InputManager* input;
+
+    Model::PlayerShip* player;
+
 
     log4cpp::Category* logger;
 };

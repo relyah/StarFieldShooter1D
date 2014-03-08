@@ -36,5 +36,16 @@ void PlayerProgram::Init() {
     attribute_coord2d = get_attrib(program, "vertex_position");
 
 }
+GLint PlayerProgram::getAttribute_coord2d() const
+{
+    return attribute_coord2d;
+}
+
+
+//void PlayerProgram::Render()
+//{
+//    AbstractProgram::Render();
+//    glEnableVertexAttribArray(attribute_coord2d);
+//}
 
 }

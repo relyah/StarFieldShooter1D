@@ -1,6 +1,7 @@
 #include "playership.h"
 
-PlayerShip::PlayerShip(OpenGL::InputManager* inputManager) : inputManager(inputManager)
+namespace Model {
+PlayerShip::PlayerShip(OpenGL::InputManager* inputManager) : inputManager(inputManager), drawer(NULL)
 {
     logger = Util::Logger::GetLogger();
 
@@ -10,15 +11,22 @@ PlayerShip::PlayerShip(OpenGL::InputManager* inputManager) : inputManager(inputM
 PlayerShip::~PlayerShip()
 {
     logger->info("PlayerShip shutting down...");
+    inputManager = NULL;
+    drawer=NULL;
     logger->info("PlayerShip shutdown.");
+    logger=NULL;
 }
 
-void PlayerShip::Draw()
+void PlayerShip::Render()
 {
-
+    if (drawer!=NULL)
+    {
+        drawer->Render();
+    }
 }
 
 void PlayerShip::Process()
 {
 
+}
 }

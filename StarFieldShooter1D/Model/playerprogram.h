@@ -13,6 +13,10 @@ public:
     PlayerProgram();
     ~PlayerProgram();
 
+    //virtual void Render();
+
+    GLint getAttribute_coord2d() const;
+
 private:
     void Init();
 

@@ -23,7 +23,7 @@ add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 target_link_libraries(${PROJECT_NAME}
 Logger log4cpp pthread
-OpenGLManager InputManager PlayerShip
+OpenGLManager InputManager Position PlayerShip
 GLEW glfw3 GL X11 Xxf86vm Xrandr rt
 StarFieldGame )
 
