@@ -25,7 +25,7 @@ public:
 
 private:
     Drawable* drawer;
-    Position* position;
+    Position position;
     OpenGL::InputManager* inputManager;
     log4cpp::Category* logger;
 };
