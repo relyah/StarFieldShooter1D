@@ -1,6 +1,11 @@
 #ifndef PLAYERDRAW_H
 #define PLAYERDRAW_H
 
+#include <log4cpp/Category.hh>
+#include <log4cpp/PropertyConfigurator.hh>
+
+#include "../Util/Logger.h"
+
 #include "playerprogram.h"
 #include "playership.h"
 #include "playerdata.h"
@@ -29,11 +34,12 @@ private:
     float incStepX;
     float minX;
     float maxX;
-    float isMovingLeft;
-    float isMovingRight;
+    float isBusyMovingLeft;
+    float isBusyMovingRight;
     float isBusyMoving;
     float currentMoveX;
     float alreadyMovedX;
+    log4cpp::Category* logger;
 
     Dimensions dimensions;
     bool isGenerateVertices;

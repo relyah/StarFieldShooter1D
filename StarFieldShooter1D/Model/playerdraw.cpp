@@ -11,12 +11,14 @@ PlayerDraw::PlayerDraw(PlayerProgram* program, PlayerData* data, PlayerShip* shi
     incStepX(0.001f),
     minX(-1.0f),
     maxX(1.0f),
-    isMovingLeft(false),
-    isMovingRight(false),
+    isBusyMovingLeft(false),
+    isBusyMovingRight(false),
     isBusyMoving(false),
     currentMoveX(0.0f),
     alreadyMovedX(0.0f)
 {
+    logger = Util::Logger::GetLogger();
+
     Position position;
     position.setX(0.0f);
     position.setY(-0.8f);
@@ -33,6 +35,7 @@ PlayerDraw::~PlayerDraw() {
     program= NULL;
     data=NULL;
     ship=NULL;
+    logger = 0;
 }
 
 void PlayerDraw::Render() {
@@ -52,16 +55,16 @@ void PlayerDraw::Render() {
 
 
 void PlayerDraw::MoveLeft() {
-    if (isBusyMoving) return;
-    isBusyMoving = true;
+    //if (isBusyMovingLeft) return;
+    isBusyMoving = isBusyMovingLeft = true;
     isGenerateVertices = true;
     alreadyMovedX=0.0f;
     currentMoveX = -incStepX;
 }
 
 void PlayerDraw::MoveRight() {
-    if (isBusyMoving) return;
-    isBusyMoving = true;
+    //if (isBusyMovingRight) return;
+    isBusyMoving = isBusyMovingRight = true;
     isGenerateVertices = true;
     alreadyMovedX=0.0f;
     currentMoveX = incStepX;
@@ -70,15 +73,18 @@ void PlayerDraw::MoveRight() {
 void PlayerDraw::MoveX()
 {
     if (fabs(currentMoveX)+alreadyMovedX>incX) {
-        isBusyMoving = false;
+        isBusyMoving = isBusyMovingLeft = isBusyMovingRight = false;
         isGenerateVertices = false;
     }
 
-    float newMinX = dimensions.getPosition().getX()+currentMoveX;
-    float newMaxX = newMinX+dimensions.getWidth();
-    if (newMinX<minX || newMaxX > maxX)
+    float newX = dimensions.getPosition().getX()+currentMoveX;
+    float width = dimensions.getWidth()/2.0f;
+    float newMaxX = newX+width;
+    float newMinX = newX - width;
+
+    if (newMinX <= minX || newMaxX > maxX)
     {
-        isBusyMoving = false;
+        isBusyMoving = isBusyMovingLeft = isBusyMovingRight = false;
         return;
     }
     dimensions.getPosition().incX(currentMoveX);

@@ -111,12 +111,11 @@ void InputManager::RegisterOnMouseMove(void (*reg_onMouseMove)(double x, double 
 
 void InputManager::onKey(int key, int action, int mods) {
 
-	std::stringstream sstm;
-	sstm << "Key: " << key << " Action:" << action;
+    //std::stringstream sstm;
+    //sstm << "Key: " << key << " Action:" << action;
+    //logger->debug(sstm.str());
 
-	logger->debug(sstm.str());
-
-	pressedKeys[key] = action == GLFW_PRESS;
+    pressedKeys[key] = true;//action == GLFW_PRESS;
 }
 
 void InputManager::onMouseButton(int button, int action, int mods) {

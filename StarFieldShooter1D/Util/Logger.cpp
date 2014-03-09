@@ -18,13 +18,13 @@ Logger::~Logger() {
 }
 
 log4cpp::Category* Logger::GetLogger() {
-		if (root == 0) {
-			std::string initFileName = "log4cpp.properties";
-			log4cpp::PropertyConfigurator::configure(initFileName);
-			root = &(log4cpp::Category::getRoot());
-		}
-		return root;
+    if (root == 0) {
+        std::string initFileName = "log4cpp.properties";
+        log4cpp::PropertyConfigurator::configure(initFileName);
+        root = &(log4cpp::Category::getRoot());
+    }
+    return root;
 
-	}
+}
 
 } /* namespace Tetris3D */
