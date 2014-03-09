@@ -12,14 +12,21 @@ PlayerData::~PlayerData()
     program = NULL;
 }
 
-void PlayerData::GenerateVertices()
+void PlayerData::GenerateVertices(Position& position)
 {
-    vertices.push_back({glm::vec2(-0.1f,-0.1f)});
-    vertices.push_back({glm::vec2(0.1f,-0.1f)});
-    vertices.push_back({glm::vec2(0.1f,0.1f)});
-    vertices.push_back({glm::vec2(-0.1f,0.1f)});
-    vertices.push_back({glm::vec2(-0.1f,-0.1f)});
-    vertices.push_back({glm::vec2(0.1f,0.1f)});
+    float widthX = 0.05f/2.0f;
+    float heightY = 0.05f/2.0f;
+    float x= position.getX();
+    float y=position.getY();
+
+    vertices.clear();
+
+    vertices.push_back({glm::vec2(-widthX+x,-heightY+y)});
+    vertices.push_back({glm::vec2(widthX+x,-heightY+y)});
+    vertices.push_back({glm::vec2(widthX+x,heightY+y)});
+    vertices.push_back({glm::vec2(-widthX+x,heightY+y)});
+    vertices.push_back({glm::vec2(-widthX+x,-heightY+y)});
+    vertices.push_back({glm::vec2(widthX+x,heightY+y)});
 }
 
 void PlayerData::LoadData()

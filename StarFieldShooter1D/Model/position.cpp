@@ -28,5 +28,7 @@ void Position::setX(float value)
     x = value;
 }
 
+void Position::incX(float incX) {x += incX;}
+void Position::incY(float incY) {y+=incY;}
 
 }

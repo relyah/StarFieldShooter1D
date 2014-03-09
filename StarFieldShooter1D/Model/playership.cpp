@@ -1,7 +1,9 @@
 #include "playership.h"
 
 namespace Model {
-PlayerShip::PlayerShip(OpenGL::InputManager* inputManager) : inputManager(inputManager), drawer(NULL)
+PlayerShip::PlayerShip(OpenGL::InputManager* inputManager) :
+    inputManager(inputManager),
+    drawer(NULL)
 {
     logger = Util::Logger::GetLogger();
 
@@ -27,6 +29,14 @@ void PlayerShip::Render()
 
 void PlayerShip::Process()
 {
+    if (inputManager->IsLeftPressed())
+    {
+        drawer->MoveLeft();
+    } else if (inputManager->IsRightPressed())
+    {
+        drawer->MoveRight();
+    }
+
 
 }
 }

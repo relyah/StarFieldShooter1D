@@ -16,10 +16,20 @@ public:
 
     virtual void Render();
 
+    void MoveLeft();
+    void MoveRight();
+
 private:
     PlayerProgram* program;
     PlayerData* data;
     PlayerShip* ship;
+    float incX;
+
+    Position position;
+    bool isGenerateVertices;
+
+    void MoveX(float inc);
+    void GenerateVertices();
 
 };
 

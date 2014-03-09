@@ -4,6 +4,7 @@
 #include <vector>
 #include "../OpenGL/abstractdata.h"
 #include "playerprogram.h"
+#include "position.h"
 
 namespace Model {
 
@@ -16,7 +17,7 @@ class PlayerData : public OpenGL::AbstractData
 public:
     PlayerData(PlayerProgram* program);
     ~PlayerData();
-    void GenerateVertices();
+    void GenerateVertices(Position &position);
     void LoadData();
     void Render();
 

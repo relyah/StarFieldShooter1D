@@ -58,6 +58,7 @@ void StarFieldGame::Play() {
 
         manager->BeginScene(0.1f,0.1f,0.1f,1.0f);
 
+        player->Process();
         player->Render();
 
         manager->EndScene();

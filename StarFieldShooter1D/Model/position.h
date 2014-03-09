@@ -14,6 +14,9 @@ public:
     float getY() const;
     void setY(float value);
 
+    void incX(float incX);
+    void incY(float incY);
+
 private:
     float x,y;
 };
