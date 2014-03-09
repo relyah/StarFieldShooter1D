@@ -5,6 +5,8 @@
 #include "playership.h"
 #include "playerdata.h"
 #include "drawable.h"
+#include "dimensions.h"
+#include <math.h>
 
 namespace Model{
 
@@ -24,11 +26,19 @@ private:
     PlayerData* data;
     PlayerShip* ship;
     float incX;
+    float incStepX;
+    float minX;
+    float maxX;
+    float isMovingLeft;
+    float isMovingRight;
+    float isBusyMoving;
+    float currentMoveX;
+    float alreadyMovedX;
 
-    Position position;
+    Dimensions dimensions;
     bool isGenerateVertices;
 
-    void MoveX(float inc);
+    void MoveX();
     void GenerateVertices();
 
 };

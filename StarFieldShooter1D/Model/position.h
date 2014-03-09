@@ -1,12 +1,21 @@
 #ifndef POSITION_H
 #define POSITION_H
 
+#include <iostream>
+
 namespace Model {
 class Position
 {
 public:
     Position();
     ~Position();
+
+//    Position(Position& copy)
+//    {
+//        std::cout << "copy" << std::endl;
+//        this->x = copy.x;
+//        this->y = copy.y;
+//    }
 
     float getX() const;
     void setX(float value);

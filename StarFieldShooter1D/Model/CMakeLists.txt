@@ -7,5 +7,6 @@ ADD_DEFINITIONS(
     # Other flags
 )
 
-add_library(PlayerLib position.cpp drawable.cpp playership.cpp playerdraw.cpp playerprogram.cpp playerdata.cpp)
+add_library(PlayerLib
+dimensions.cpp position.cpp  drawable.cpp playership.cpp playerdraw.cpp playerprogram.cpp playerdata.cpp)
 

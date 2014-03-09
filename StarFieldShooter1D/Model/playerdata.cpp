@@ -12,12 +12,12 @@ PlayerData::~PlayerData()
     program = NULL;
 }
 
-void PlayerData::GenerateVertices(Position& position)
+void PlayerData::GenerateVertices(Dimensions &dimensions)
 {
-    float widthX = 0.05f/2.0f;
-    float heightY = 0.05f/2.0f;
-    float x= position.getX();
-    float y=position.getY();
+    float widthX = dimensions.getWidth()/2.0f;
+    float heightY = dimensions.getHeight()/2.0f;
+    float x= dimensions.getPosition().getX();
+    float y=dimensions.getPosition().getY();
 
     vertices.clear();
 

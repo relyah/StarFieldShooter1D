@@ -8,7 +8,6 @@
 #include "../OpenGL/InputManager.h"
 
 #include "drawable.h"
-#include "position.h"
 
 namespace Model {
 class PlayerShip
