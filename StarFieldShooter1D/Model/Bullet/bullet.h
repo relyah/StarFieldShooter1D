@@ -2,7 +2,7 @@
 #define BULLET_H
 
 #include "../position.h"
-#include "../../OpenGL/abstractprogram.h"
+#include "../Player/playerprogram.h"
 #include <vector>
 
 #define GLM_MESSAGES
@@ -20,7 +20,7 @@ struct VertexDataBullet {
 class Bullet
 {
 public:
-    Bullet(OpenGL::AbstractProgram* program);
+    Bullet(PlayerProgram* program);
 
     void Render();
 
@@ -30,7 +30,9 @@ public:
     }
 
 private:
-    OpenGL::AbstractProgram* program;
+    GLuint vao;
+    GLuint vbo;
+    PlayerProgram* program;
     Position position;
     std::vector<VertexDataBullet> vertices;
 };
