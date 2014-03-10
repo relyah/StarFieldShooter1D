@@ -12,8 +12,8 @@ StarFieldGame::StarFieldGame()
     input = new OpenGL::InputManager();
     input->Init(manager);
 
-    player = new Model::PlayerShip(input);
     playerProgram = new Model::PlayerProgram();
+    player = new Model::PlayerShip(input, playerProgram);
     playerData = new Model::PlayerData(playerProgram);
     playerDraw = new Model::PlayerDraw(playerProgram,playerData,player);
 

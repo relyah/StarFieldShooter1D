@@ -8,10 +8,10 @@
 #include "OpenGL/openglmanager.h"
 #include "OpenGL/InputManager.h"
 
-#include "Model/playership.h"
-#include "Model/playerprogram.h"
-#include "Model/playerdata.h"
-#include "Model/playerdraw.h"
+#include "Model/Player/playership.h"
+#include "Model/Player/playerprogram.h"
+#include "Model/Player/playerdata.h"
+#include "Model/Player/playerdraw.h"
 
 class StarFieldGame
 {

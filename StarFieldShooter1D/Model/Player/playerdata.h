@@ -1,6 +1,12 @@
 #ifndef PLAYERDATA_H
 #define PLAYERDATA_H
 
+#define GLM_MESSAGES
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/vector_angle.hpp>
+
 #include <vector>
 #include "../OpenGL/abstractdata.h"
 #include "playerprogram.h"
@@ -8,7 +14,7 @@
 
 namespace Model {
 
-struct VertexData {
+struct VertexDataPlayer {
     glm::vec2 coord;
 };
 
@@ -24,7 +30,7 @@ public:
 private:
     PlayerProgram* program;
     GLuint vbo;
-    std::vector<VertexData> vertices;
+    std::vector<VertexDataPlayer> vertices;
 
 
 };

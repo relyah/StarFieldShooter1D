@@ -10,12 +10,11 @@ public:
     Position();
     ~Position();
 
-//    Position(Position& copy)
-//    {
-//        std::cout << "copy" << std::endl;
-//        this->x = copy.x;
-//        this->y = copy.y;
-//    }
+    Position(Position& copy)
+    {
+        this->x = copy.x;
+        this->y = copy.y;
+    }
 
     float getX() const;
     void setX(float value);

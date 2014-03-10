@@ -51,6 +51,15 @@ void PlayerDraw::Render() {
         GenerateVertices();
     }
     data->Render();
+
+    std::vector<Bullet*> bullets = ship->getBullets();
+    if (bullets.size()>0)
+    {
+        for (std::vector<Bullet*>::iterator it = bullets.begin() ; it != bullets.end(); ++it) {
+            (*it)->Render();
+        }
+    }
+
 }
 
 

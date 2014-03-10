@@ -1,6 +1,12 @@
 #ifndef PLAYERDRAW_H
 #define PLAYERDRAW_H
 
+#define GLM_MESSAGES
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/vector_angle.hpp>
+
 #include <log4cpp/Category.hh>
 #include <log4cpp/PropertyConfigurator.hh>
 
@@ -41,7 +47,6 @@ private:
     float alreadyMovedX;
     log4cpp::Category* logger;
 
-    Dimensions dimensions;
     bool isGenerateVertices;
 
     void MoveX();
