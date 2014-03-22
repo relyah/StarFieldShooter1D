@@ -26,9 +26,10 @@ public:
     BulletDraw(PlayerProgram* program);
     ~BulletDraw();
 
-    void Render(std::vector<Bullet*> bullets);
+    void Render(std::vector<Bullet*>& bullets);
 
 private:
+    bool IsVisible(Bullet& bullet);
     void Render(Bullet& bullet);
 
     PlayerProgram* program;

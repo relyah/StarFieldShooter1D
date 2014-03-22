@@ -14,6 +14,8 @@
 #include "../Util/Logger.h"
 #include "openglmanager.h"
 
+#define NOKEY -1 //for GLFW to indicate the key was not pressed
+
 namespace OpenGL {
 
 class InputManager {
@@ -50,7 +52,7 @@ private:
 	bool isUpPressed;
 	bool isDownPressed;
 	log4cpp::Category* logger;
-	bool pressedKeys[GLFW_KEY_LAST];
+    int pressedKeys[GLFW_KEY_LAST];
 
 	void (*reg_onMouseButton)(int button, int action, int mods);
 	void (*reg_onMouseMove)(double x, double y);
@@ -59,7 +61,7 @@ private:
 	void onMouseButton(int button, int action, int mods);
 	void onMouseMove(double x, double y);
 	void onMouseWheel(double xoffset, double yoffset);
-	bool ToggleKey(int key);
+    bool ToggleKey(int key, bool isCheckRelease=true, bool isCheckPress=true);
 
 	static void glfw_onKey(GLFWwindow *window, int key, int scancode, int action, int mods) {
 		manager->onKey(key, action, mods);

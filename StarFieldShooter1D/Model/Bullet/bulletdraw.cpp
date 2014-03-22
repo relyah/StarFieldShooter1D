@@ -23,7 +23,7 @@ BulletDraw::~BulletDraw()
 
 }
 
-void BulletDraw::Render(std::vector<Bullet*> bullets)
+void BulletDraw::Render(std::vector<Bullet*>& bullets)
 {
     if (bullets.size()>0)
     {
@@ -31,23 +31,45 @@ void BulletDraw::Render(std::vector<Bullet*> bullets)
         glBindVertexArray(vao);
         vertices.clear();
 
+        bool isVisible = false;
         for (std::vector<Model::Bullet*>::iterator it = bullets.begin() ; it != bullets.end(); ++it) {
-            Render(**it);
+            Bullet bullet = **it;
+            std::cout << bullet.getPosition().getY() << std::endl;
+            if (IsVisible(bullet))
+            {
+                isVisible = true;
+                Render(bullet);
+            } else
+            {
+                delete *it;
+                bullets.erase(it);
+            }
+            std::cout << bullet.getPosition().getY() << std::endl;
         }
 
+        if (isVisible)
+        {
+            glBindBuffer(GL_ARRAY_BUFFER, vbo);
+            glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float) * 2, &vertices[0], GL_STATIC_DRAW);
 
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float) * 2, &vertices[0], GL_STATIC_DRAW);
+            glEnableVertexAttribArray(program->getAttribute_coord2d());
 
-        glEnableVertexAttribArray(program->getAttribute_coord2d());
+            glVertexAttribPointer(program->getAttribute_coord2d(), 2,
+                                  GL_FLOAT,
+                                  GL_FALSE, sizeof(float) * 2,  // stride
+                                  0);  // offset
 
-        glVertexAttribPointer(program->getAttribute_coord2d(), 2,
-                              GL_FLOAT,
-                              GL_FALSE, sizeof(float) * 2,  // stride
-                              0);  // offset
-
-        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+            glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+        }
     }
+}
+
+bool BulletDraw::IsVisible(Bullet &bullet)
+{
+    Position pos = bullet.getPosition();
+    float y = pos.getY();
+    if (y > 1.0f) return false;
+    return true;
 }
 
 void BulletDraw::Render(Bullet& bullet)

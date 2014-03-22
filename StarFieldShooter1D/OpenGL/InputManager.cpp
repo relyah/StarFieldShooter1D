@@ -25,7 +25,7 @@ InputManager::InputManager() {
     logger = Util::Logger::GetLogger();
 
 	for (int i = 0; i < GLFW_KEY_LAST; i++) {
-		pressedKeys[i] = false;
+        pressedKeys[i] = NOKEY;
 	}
 }
 
@@ -92,12 +92,12 @@ bool InputManager::IsCPressed() {
 	return ToggleKey(GLFW_KEY_C);
 }
 bool InputManager::IsSpacebarPressed() {
-	return ToggleKey(GLFW_KEY_SPACE);
+    return ToggleKey(GLFW_KEY_SPACE,false,true);
 }
 
-bool InputManager::ToggleKey(int key) {
-	bool result = pressedKeys[key];
-	pressedKeys[key] = false;
+bool InputManager::ToggleKey(int key, bool isCheckRelease, bool isCheckPress) {
+    bool result = (isCheckRelease && pressedKeys[key]==GLFW_RELEASE) || ( isCheckPress && pressedKeys[key]==GLFW_PRESS);
+    pressedKeys[key] = NOKEY;
 	return result;
 }
 
@@ -115,7 +115,7 @@ void InputManager::onKey(int key, int action, int mods) {
     //sstm << "Key: " << key << " Action:" << action;
     //logger->debug(sstm.str());
 
-    pressedKeys[key] = true;//action == GLFW_PRESS;
+    pressedKeys[key] = action;
 }
 
 void InputManager::onMouseButton(int button, int action, int mods) {
