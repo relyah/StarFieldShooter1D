@@ -25,6 +25,8 @@ BulletDraw::~BulletDraw()
 
 void BulletDraw::Render(std::vector<Bullet*>& bullets)
 {
+    std::cout << "bullets address(2): " << &bullets << std::endl;
+
     if (bullets.size()>0)
     {
         program->Render();
@@ -33,8 +35,8 @@ void BulletDraw::Render(std::vector<Bullet*>& bullets)
 
         bool isVisible = false;
         for (std::vector<Model::Bullet*>::iterator it = bullets.begin() ; it != bullets.end(); ++it) {
-            Bullet bullet = **it;
-            std::cout << bullet.getPosition().getY() << std::endl;
+            Bullet* bullet = *it;
+            //std::cout << &(*bullet) << " " << bullet->getPosition().getY() << std::endl;
             if (IsVisible(bullet))
             {
                 isVisible = true;
@@ -43,8 +45,9 @@ void BulletDraw::Render(std::vector<Bullet*>& bullets)
             {
                 delete *it;
                 bullets.erase(it);
+                it--;
             }
-            std::cout << bullet.getPosition().getY() << std::endl;
+            //std::cout << &(*bullet) << " "<< bullet->getPosition().getY() << std::endl;
         }
 
         if (isVisible)
@@ -64,22 +67,22 @@ void BulletDraw::Render(std::vector<Bullet*>& bullets)
     }
 }
 
-bool BulletDraw::IsVisible(Bullet &bullet)
+bool BulletDraw::IsVisible(Bullet* bullet)
 {
-    Position pos = bullet.getPosition();
+    Position pos = bullet->getPosition();
     float y = pos.getY();
     if (y > 1.0f) return false;
     return true;
 }
 
-void BulletDraw::Render(Bullet& bullet)
+void BulletDraw::Render(Bullet* bullet)
 {
 
 
     float widthX = 0.005f;
     float heightY = 0.005f;
 
-    Position pos =  bullet.getPosition();
+    Position pos =  bullet->getPosition();
     float x =pos.getX();
     float y = pos.getY();
 
@@ -90,6 +93,6 @@ void BulletDraw::Render(Bullet& bullet)
     vertices.push_back({glm::vec2(-widthX+x,-heightY+y)});
     vertices.push_back({glm::vec2(widthX+x,heightY+y)});
 
-    bullet.getPosition().setY(pos.getY() + 0.001f);
+    bullet->getPosition().setY(y + 0.001f);
 }
 }

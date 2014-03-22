@@ -63,7 +63,20 @@ void GameLogic::ProcessPlayerBullets()
     }
 
     std::vector<Model::Bullet*> bullets = player->getBullets();
+
+    std::cout << "bullets address(1): " << &bullets << std::endl;
+    for (std::vector<Model::Bullet*>::iterator it = bullets.begin() ; it != bullets.end(); ++it) {
+        std::cout << (*it)->getPosition().getY() << std::endl;
+        //(*it)->getPosition().setY(0.0f);
+        std::cout << &(*it) << " "<< (*it)->getPosition().getY() << std::endl;
+    }
+
     bulletDraw->Render(bullets);
+
+    for (std::vector<Model::Bullet*>::iterator it = bullets.begin() ; it != bullets.end(); ++it) {
+        //(*it)->getPosition().setY(-0.5f);
+        std::cout << &(*it) << " "<< (*it)->getPosition().getY() << std::endl;
+    }
 }
 
 }

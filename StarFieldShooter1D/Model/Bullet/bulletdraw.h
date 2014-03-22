@@ -29,8 +29,8 @@ public:
     void Render(std::vector<Bullet*>& bullets);
 
 private:
-    bool IsVisible(Bullet& bullet);
-    void Render(Bullet& bullet);
+    bool IsVisible(Bullet* bullet);
+    void Render(Bullet* bullet);
 
     PlayerProgram* program;
     GLuint vao;
