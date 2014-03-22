@@ -78,6 +78,7 @@ void OpenGLManager::BeginScene(float r, float g, float b, float a) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
+//
 void OpenGLManager::EndScene() {
     glfwSwapBuffers(window);
 }
