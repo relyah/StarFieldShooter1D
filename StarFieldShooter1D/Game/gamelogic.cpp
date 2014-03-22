@@ -8,7 +8,7 @@ GameLogic::GameLogic(OpenGL::InputManager* input) : inputManager(input)
     player = new Model::PlayerShip(input, playerProgram);
     playerData = new Model::PlayerData(playerProgram);
     playerDraw = new Model::PlayerDraw(playerProgram,playerData,player);
-
+    bulletDraw = new Model::BulletDraw(playerProgram);
 }
 
 GameLogic::~GameLogic()
@@ -26,6 +26,9 @@ GameLogic::~GameLogic()
 
     delete player;
     player = NULL;
+
+    delete bulletDraw;
+    bulletDraw = NULL;
 }
 
 void GameLogic::Process()
@@ -52,12 +55,15 @@ void GameLogic::ProcessPlayerBullets()
     if (inputManager->IsSpacebarPressed())
     {
         //shoot
-        Model::Bullet* b = new Model::Bullet(playerProgram);
+        Model::Bullet* b = new Model::Bullet();
         Model::Position bpos(playerDraw->getDimensions().getPosition());
         bpos.incY(+0.1f);
         b->setPosition(bpos);
         player->getBullets().push_back(b); //draw bullets
     }
+
+    std::vector<Model::Bullet*> bullets = player->getBullets();
+    bulletDraw->Render(bullets);
 }
 
 }

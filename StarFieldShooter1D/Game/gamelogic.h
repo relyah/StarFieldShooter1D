@@ -6,6 +6,7 @@
 #include "../Model/Player/playerdata.h"
 #include "../Model/Player/playerdraw.h"
 #include "../Model/Bullet/bullet.h"
+#include "../Model/Bullet/bulletdraw.h"
 
 #include "../OpenGL/InputManager.h"
 
@@ -29,6 +30,8 @@ private:
     Model::PlayerProgram* playerProgram;
     Model::PlayerData* playerData;
     Model::PlayerDraw* playerDraw;
+
+    Model::BulletDraw* bulletDraw;
 };
 
 }
