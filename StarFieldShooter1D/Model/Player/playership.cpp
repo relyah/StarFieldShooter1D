@@ -36,24 +36,4 @@ void PlayerShip::Render()
     }
 }
 
-void PlayerShip::Process()
-{
-    if (inputManager->IsLeftPressed())
-    {
-        drawer->MoveLeft();
-    } else if (inputManager->IsRightPressed())
-    {
-        drawer->MoveRight();
-    }
-
-    if (inputManager->IsSpacebarPressed())
-    {
-        //shoot
-        Bullet* b = new Bullet(program);
-        Position bpos(drawer->getDimensions().getPosition());
-        bpos.incY(+0.1f);
-        b->setPosition(bpos);
-        bullets.push_back(b);
-    }
-}
 }

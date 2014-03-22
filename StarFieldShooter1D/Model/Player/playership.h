@@ -23,8 +23,6 @@ public:
 
     void Render();
 
-    void Process();
-
     std::vector<Bullet*>& getBullets() {return bullets;}
 
 private:
