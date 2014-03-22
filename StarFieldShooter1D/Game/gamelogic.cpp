@@ -56,7 +56,7 @@ void GameLogic::ProcessPlayerBullets()
         Model::Position bpos(playerDraw->getDimensions().getPosition());
         bpos.incY(+0.1f);
         b->setPosition(bpos);
-        player->getBullets().push_back(b); //test
+        player->getBullets().push_back(b);
     }
 }
 
