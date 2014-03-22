@@ -12,6 +12,7 @@
 #include "Model/Player/playerprogram.h"
 #include "Model/Player/playerdata.h"
 #include "Model/Player/playerdraw.h"
+#include "Game/gamelogic.h"
 
 class StarFieldGame
 {
@@ -25,6 +26,8 @@ private:
 
     OpenGL::OpenGLManager* manager;
     OpenGL::InputManager* input;
+
+    Game::GameLogic* logic;
 
     Model::PlayerShip* player;
     Model::PlayerProgram* playerProgram;

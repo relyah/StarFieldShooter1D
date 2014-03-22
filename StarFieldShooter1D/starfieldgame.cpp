@@ -12,6 +12,8 @@ StarFieldGame::StarFieldGame()
     input = new OpenGL::InputManager();
     input->Init(manager);
 
+    logic = new Game::GameLogic();
+
     playerProgram = new Model::PlayerProgram();
     player = new Model::PlayerShip(input, playerProgram);
     playerData = new Model::PlayerData(playerProgram);
@@ -42,6 +44,9 @@ StarFieldGame::~StarFieldGame(){
     delete player;
     player = NULL;
 
+    delete logic;
+    logic=NULL;
+
 
     logger->info("Star Field Game shutdown.");
     logger = 0;
@@ -60,6 +65,8 @@ void StarFieldGame::Play() {
 
         player->Process();
         player->Render();
+
+        logic->Process();
 
         manager->EndScene();
 

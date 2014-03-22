@@ -25,8 +25,8 @@ void Bullet::Render()
 
     vertices.clear();
 
-    float widthX = 0.5f;
-    float heightY = 0.5f;
+    float widthX = 0.005f;
+    float heightY = 0.005f;
 
     float x = position.getX();
     float y = position.getY();
@@ -49,5 +49,7 @@ void Bullet::Render()
                           0);  // offset
 
     glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+
+    position.setY(position.getY() + 0.001f);
 }
 }

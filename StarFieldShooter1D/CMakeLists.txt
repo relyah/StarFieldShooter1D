@@ -11,10 +11,12 @@ aux_source_directory(. SRC_LIST)
 include_directories("${PROJECT_SOURCE_DIR}/Util")
 include_directories("${PROJECT_SOURCE_DIR}/OpenGL")
 include_directories("${PROJECT_SOURCE_DIR}/Model")
+include_directories("${PROJECT_SOURCE_DIR}/Game")
 
 add_subdirectory(Util)
 add_subdirectory(OpenGL)
 add_subdirectory(Model)
+add_subdirectory(Game)
 
 add_library(StarFieldGame starfieldgame.cpp)
 
@@ -23,6 +25,7 @@ add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 target_link_libraries(${PROJECT_NAME}
 log4cpp pthread
+GameLib
 PlayerLib
 OpenGLLib
 UtilLib
