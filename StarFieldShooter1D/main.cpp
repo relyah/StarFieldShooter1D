@@ -1,3 +1,4 @@
+//author: me
 //main file for the game
 #include <iostream>
 
