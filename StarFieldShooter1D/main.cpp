@@ -1,3 +1,4 @@
+//main file for the game
 #include <iostream>
 
 #include "starfieldgame.h"
